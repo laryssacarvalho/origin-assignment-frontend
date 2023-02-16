@@ -1,0 +1,7 @@
+<button
+	[type]="type"
+	(click)="onClick()"
+    [ngClass]="{'primary' : color == 'primary', 'secondary': color == 'secondary'}"
+	class="btn">
+	<span>{{ buttonText }}</span>
+</button>

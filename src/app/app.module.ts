@@ -13,6 +13,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ButtonComponent } from './components/button/button.component';
 import { CardComponent } from './components/card/card.component';
 import { ScoreResultComponent } from './components/score-result/score-result.component';
+import { ScoreBarComponent } from './components/score-bar/score-bar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ScoreResultComponent } from './components/score-result/score-result.com
     FooterComponent,
     ButtonComponent,
     CardComponent,
-    ScoreResultComponent
+    ScoreResultComponent,
+    ScoreBarComponent
   ],
   imports: [
     BrowserModule,

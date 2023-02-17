@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-6">
-            <p class="title">Let's find out your <strong>financial wellness score.</strong></p>
+            <p class="title">Here's your <strong>financial wellness score:</strong></p>
         </div>
     </div>
     <div class="row justify-content-center">
@@ -14,11 +14,7 @@
                         </div>                        
                     
                         <div class="col-12 text-center mb-4">
-                            <div class="score-bar-wrapper">
-                                <div class="score-bar-1"></div>
-                                <div class="score-bar-2"></div>
-                                <div class="score-bar-3"></div>
-                            </div>
+                            <app-score-bar [type]="getScoreBarType()"></app-score-bar>
                         </div>                        
                     
                         <div class="col-12 text-center mb-4">
@@ -30,27 +26,7 @@
                         <div class="col-12 d-flex justify-content-center">    
                             <app-button (btnClick)="onBtnClick()" buttonText="Return" type="submit" color="secondary"></app-button>
                         </div>
-                    </div>
-                    <!-- <div class="row">
-                        
-                        <div class="col-sm-6 mb-4">
-                            <label for="annual-income" class="form-label">Annual income</label>
-                            <div class="input-group flex-nowrap">                                                                        
-                                <span class="input-group-text"><fa-icon [icon]="faDollarSign" class="fa-lg input-icon"></fa-icon></span>
-                                <input type="number" class="form-control input-field" formControlName="annual-income">
-                            </div>
-                        </div>
-                        <div class="col-sm-6 mb-4">
-                            <label for="monthly-costs" class="form-label">Monthly costs</label>
-                            <div class="input-group flex-nowrap">                                                                        
-                                <span class="input-group-text"><fa-icon [icon]="faDollarSign" class="fa-lg input-icon"></fa-icon></span>
-                                <input type="number" class="form-control input-field" formControlName="monthly-costs">
-                            </div>
-                        </div>                        
-                        <div class="col d-flex justify-content-center">
-                            <app-button (btnClick)="onBtnClick()" buttonText="Return" type="submit" color="secondary"></app-button>
-                        </div>
-                    </div> -->
+                    </div>                    
                 </div>
             </div>              
         </div>        

@@ -37,19 +37,3 @@
     width: 64px;
     height: 64px;
 }
-.score-bar-wrapper {
-    /* width: 444px; */
-    background: #E9EEF2;
-    border: 2px solid #FFFFFF;
-    border-radius: 24px;
-    height: 24px;
-}
-.score-bar-1 {
-    width: 33%;
-    background: #001C95;
-    height: 24px;
-    border: 2px solid #FFFFFF;
-    border-radius: 24px;
-    margin: 0;
-
-}

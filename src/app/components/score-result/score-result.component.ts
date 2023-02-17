@@ -31,4 +31,15 @@ export class ScoreResultComponent implements OnInit {
       this.title = 'Caution!'
     }
   }
+
+  getScoreBarType() : string {
+    if(this.score == Score.Healthy){
+      return 'full';
+    } else if(this.score == Score.Medium){
+      return 'medium';
+    } else if(this.score == Score.Low){
+      return 'low';
+    }
+    return '';
+  }
 }

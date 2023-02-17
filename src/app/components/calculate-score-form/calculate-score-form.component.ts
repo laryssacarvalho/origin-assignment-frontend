@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import {  FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { faDollarSign } from '@fortawesome/free-solid-svg-icons';
-import { CalculateScoreRequest } from '../models/calculate-score-request.model';
-import { FinancialScoreService } from '../services/financial-score.service';
+import { CalculateScoreRequest } from '../../models/calculate-score-request.model';
+import { FinancialScoreService } from '../../services/financial-score.service';
 
 @Component({
   selector: 'app-calculate-score-form',
@@ -18,7 +19,7 @@ export class CalculateScoreFormComponent {
     "monthly-costs": new FormControl(null, [Validators.required, Validators.min(1)]),
   });
 
-  constructor(private service: FinancialScoreService) { }
+  constructor(private service: FinancialScoreService, private readonly router: Router) { }
   
   onBtnClick(){
     if(this.scoreFormGroup.valid){
@@ -28,7 +29,7 @@ export class CalculateScoreFormComponent {
       request.monthlyCosts = this.scoreFormGroup.controls['monthly-costs'].value!;
   
       this.service.calculateScore(request).subscribe({
-        next: (r) => { debugger; },
+        next: (r) => this.router.navigate(['score-result', { score: r.score }]),
         error: (e) => console.log(e)
       });
       

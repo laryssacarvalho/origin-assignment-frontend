@@ -14,6 +14,17 @@ import { ButtonComponent } from './components/button/button.component';
 import { CardComponent } from './components/card/card.component';
 import { ScoreResultComponent } from './components/score-result/score-result.component';
 import { ScoreBarComponent } from './components/score-bar/score-bar.component';
+import { CurrencyMaskConfig, CurrencyMaskModule, CURRENCY_MASK_CONFIG } from 'ng2-currency-mask';
+
+export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
+  allowNegative: false,  
+  precision: 0,
+  prefix: "",
+  align: "right",
+  decimal: ".",
+  suffix: "",
+  thousands: ","
+};
 
 @NgModule({
   declarations: [
@@ -31,9 +42,12 @@ import { ScoreBarComponent } from './components/score-bar/score-bar.component';
     AppRoutingModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CurrencyMaskModule
   ],
-  providers: [],
+  providers: [
+    { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

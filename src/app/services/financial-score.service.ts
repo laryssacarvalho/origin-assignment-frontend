@@ -3,12 +3,16 @@ import { HttpClient } from '@angular/common/http';
 import { CalculateScoreRequest } from '../models/calculate-score-request.model';
 import { Observable } from 'rxjs';
 import { CalculateScoreResponse } from '../models/calculate-score-response.model';
+import { environment } from 'src/environments/environment';
+
 
 @Injectable()
 export class FinancialScoreService {
-  constructor(private http: HttpClient) { }
-
-  baseURL: string = "http://localhost:5169/";
+  baseURL: string = "";
+  
+  constructor(private http: HttpClient) {
+    this.baseURL = environment.apiUrl;
+  }
   
   calculateScore(request: CalculateScoreRequest): Observable<CalculateScoreResponse> {
     const headers = { 'content-type': 'application/json'}  

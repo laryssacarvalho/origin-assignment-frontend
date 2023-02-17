@@ -9,3 +9,10 @@ body{
     font-family: 'Rubik';
     src: url('../src/assets/fonts/Rubik-Regular.ttf');
 }
+.container{
+    padding-top: 124px;
+}
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <p class="title">Let's find out your <strong>financial wellness score.</strong></p>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-6">            
+            <div class="card">
+                <div class="card-body">                    
+                    <div class="row mb-4">
+                        <div class="col-sm-2">
+                            <img src="assets/images/origin-icon.png" class="origin-icon">
+                        </div>
+                        <div class="col-sm-10">
+    
+                            <h4 class="card-title">Financial wellness test</h4>
+                            <p class="card-subtitle">Enter your financial information below</p>
+                        </div>
+                    </div>
+                    <form [formGroup]="scoreFormGroup" class="row">
+                        
+                        <div class="col-sm-6 mb-4">
+                            <label for="annual-income" class="form-label">Annual income</label>
+                            <div class="input-group flex-nowrap">                                                                        
+                                <span class="input-group-text"><fa-icon [icon]="faDollarSign" class="fa-lg input-icon"></fa-icon></span>
+                                <input type="number" class="form-control input-field" formControlName="annual-income">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-4">
+                            <label for="monthly-costs" class="form-label">Monthly costs</label>
+                            <div class="input-group flex-nowrap">                                                                        
+                                <span class="input-group-text"><fa-icon [icon]="faDollarSign" class="fa-lg input-icon"></fa-icon></span>
+                                <input type="number" class="form-control input-field" formControlName="monthly-costs">
+                            </div>
+                        </div>                        
+                        <div class="col d-flex justify-content-center">
+                            <app-button (btnClick)="onBtnClick()" buttonText="Continue" type="submit"></app-button>
+                        </div>
+                    </form>
+                </div>
+            </div>              
+        </div>        
+    </div>
+</div>

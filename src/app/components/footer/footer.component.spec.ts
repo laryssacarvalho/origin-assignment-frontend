@@ -20,4 +20,10 @@ describe('FooterComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should contain footer text', () => {
+    const expectedText = "Your financial information is encrypted and secure. We'll never share or sell any of your personal data.";
+    const htmlElement: HTMLElement = fixture.nativeElement;
+    expect(htmlElement.textContent).toContain(expectedText);
+  });
 });

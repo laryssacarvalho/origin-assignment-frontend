@@ -15,8 +15,8 @@ export class CalculateScoreFormComponent {
   faDollarSign = faDollarSign;
 
   scoreFormGroup = new FormGroup({
-    "annual-income": new FormControl(null, [Validators.required, Validators.min(1)]),
-    "monthly-costs": new FormControl(null, [Validators.required, Validators.min(1)]),
+    "annual-income": new FormControl<number | null>(null, [Validators.required, Validators.min(1)]),
+    "monthly-costs": new FormControl<number | null>(null, [Validators.required, Validators.min(1)]),
   });
 
   constructor(private service: FinancialScoreService, private readonly router: Router) { }
@@ -26,9 +26,9 @@ export class CalculateScoreFormComponent {
       var request = new CalculateScoreRequest ();
       
       request.annualIncome = this.scoreFormGroup.controls['annual-income'].value!;
-      request.monthlyCosts = this.scoreFormGroup.controls['monthly-costs'].value!;
-  
-      this.service.calculateScore(request).subscribe({
+      request.monthlyCosts = this.scoreFormGroup.controls['monthly-costs'].value!;      
+      
+      this.service.calculateScore(request).subscribe({      
         next: (r) => this.router.navigate(['score-result', { score: r.score }]),
         error: (e) => console.log(e)
       });

@@ -20,4 +20,17 @@ describe('ButtonComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('#onClick should emit event', () => {
+    spyOn(component.btnClick, 'emit');
+
+    const nativeElement = fixture.nativeElement;
+    
+    const button = nativeElement.querySelector('button');
+    button.dispatchEvent(new Event('click'));
+
+    fixture.detectChanges();
+
+    expect(component.btnClick.emit).toHaveBeenCalledWith();    
+  });
 });

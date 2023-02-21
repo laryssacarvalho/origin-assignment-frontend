@@ -3,41 +3,42 @@
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
-    line-height: 150%;    
     text-align: center;    
     color: #001C95;    
-}
-
-.origin-icon {
-    width: 64px;
-    height: 64px;
 }
 
 .input-icon {
     color: #CBD5DC;
 }
 
-.input-group-text{
+.input-group-text {
     background-color: #FFFFFF;
     border-right: 0;
     padding-left: 17px;
     padding-right: 17px;
+    border-color: #e9eef2;
 }
-.input-label{
+
+.input-label {
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
-    line-height: 150%;
     color: #1E2A32;
 }
+
 .input-field {
     padding: 14px;
     font-family: 'Rubik';
     font-style: normal;
     font-weight: 500;
     font-size: 24px;
-    line-height: 120%;
     color: #4D6475;
     border-left: 0;
+    border-color: #e9eef2;
+}
+
+.input-error {
+    color: #dc3545;
+    font-size: 0.875em;
 }

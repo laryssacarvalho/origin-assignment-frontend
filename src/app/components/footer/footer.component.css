@@ -1,14 +1,15 @@
-
-footer {
-    padding: 30px;
-    text-align: center;    
-}
-
 .footer-content {
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
-    line-height: 150%;
     color: #708797
+}
+
+@media(min-width: 576px) {
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
 }

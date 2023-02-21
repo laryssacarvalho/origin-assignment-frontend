@@ -1,18 +1,103 @@
 body{
     background: #F4F8FA !important;
 }
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('../src/assets/fonts/Rubik-Regular.ttf') format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Rubik";
+    src: url('../src/assets/fonts/Rubik-Medium.ttf') format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+
 @font-face {
     font-family: 'Work Sans';
     src: url('../src/assets/fonts/WorkSans-Regular.ttf');
+    font-weight: 400;
+    font-style: normal;
 }
+
 @font-face {
-    font-family: 'Rubik';
-    src: url('../src/assets/fonts/Rubik-Regular.ttf');
+    font-family: "Work Sans";
+    src: url('../src/assets/fonts/WorkSans-Medium.ttf') format("truetype");
+    font-weight: 500;
+    font-style: normal;
 }
-.container{
+
+@font-face {
+    font-family: "Work Sans";
+    src: url('../src/assets/fonts/WorkSans-SemiBold.ttf') format("truetype");
+    font-weight: 600;
+    font-style: normal;
+}
+  
+.container {
     padding-top: 124px;
 }
+
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+h4 {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    color: #1E2A32;
+}
+
+.card-subtitle {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;    
+    color: #708797;
+}
+
+.card {
+    padding: 32px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 10px rgba(30, 42, 50, 0.08);
+    border-radius: 8px;
+    border: 0 !important;
+}
+
+.title {    
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;    
+    color: #001C95;    
+}
+
+#origin-icon {
+    width: 64px;
+    height: 64px;
+}
+
+@media(max-width: 768px) {
+    .container{
+        padding: 24px 16px;
+    }
+    .title{
+        font-size: 18px;
+    }
+    .card{
+        padding: 16px;
+    }
+    h4{
+        font-size: 20px;
+    }
+    .card-subtitle {
+        font-size: 14px;
+    }
 }

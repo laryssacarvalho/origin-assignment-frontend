@@ -33,7 +33,7 @@
                         <label for="monthly-costs" class="form-label input-label">Monthly costs</label>
                         <div class="input-group flex-nowrap">                                                                        
                             <span class="input-group-text"><fa-icon [icon]="faDollarSign" class="fa-lg input-icon"></fa-icon></span>
-                            <input type="number" required class="form-control input-field" formControlName="monthlyCosts" id="monthly-costs">
+                            <input required class="form-control input-field" formControlName="monthlyCosts" id="monthly-costs" currencyMask>
                         </div>
 
                         <div *ngIf="monthlyCosts?.invalid && (monthlyCosts?.dirty || monthlyCosts?.touched)">

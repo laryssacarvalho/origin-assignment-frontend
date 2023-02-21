@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 import { CalculateScoreResponse } from '../models/calculate-score-response.model';
 import { environment } from 'src/environments/environment';
 
-
 @Injectable()
 export class FinancialScoreService {
   baseURL: string = "";
@@ -17,7 +16,6 @@ export class FinancialScoreService {
   calculateScore(request: CalculateScoreRequest): Observable<CalculateScoreResponse> {
     const headers = { 'content-type': 'application/json'}  
     const body = JSON.stringify(request);
-    return this.http.post<CalculateScoreResponse>(this.baseURL + 'FinancialScore', body, { 'headers':headers });
+    return this.http.post<CalculateScoreResponse>(this.baseURL + 'FinancialScore', body, { 'headers':headers });    
   }
- 
 }

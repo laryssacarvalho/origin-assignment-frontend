@@ -15,6 +15,8 @@ import { CardComponent } from './components/card/card.component';
 import { ScoreResultComponent } from './components/score-result/score-result.component';
 import { ScoreBarComponent } from './components/score-bar/score-bar.component';
 import { CurrencyMaskConfig, CurrencyMaskModule, CURRENCY_MASK_CONFIG } from 'ng2-currency-mask';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ToastsContainerComponent } from './components/toasts-container/toasts-container.component';
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   allowNegative: false,  
@@ -35,7 +37,8 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     ButtonComponent,
     CardComponent,
     ScoreResultComponent,
-    ScoreBarComponent
+    ScoreBarComponent,  
+    ToastsContainerComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     FontAwesomeModule,
     ReactiveFormsModule,
     HttpClientModule,
-    CurrencyMaskModule
+    CurrencyMaskModule,
+    NgbModule
   ],
   providers: [
     { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {  FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { faDollarSign } from '@fortawesome/free-solid-svg-icons';
+import { ApiErrorResponse } from 'src/app/models/api-error-response.model';
 import { ToastService } from 'src/app/services/toast.service';
 import { CalculateScoreRequest } from '../../models/calculate-score-request.model';
 import { FinancialScoreService } from '../../services/financial-score.service';
@@ -20,9 +21,7 @@ export class CalculateScoreFormComponent {
     monthlyCosts: new FormControl<number | null>(null, [Validators.required, Validators.min(1)]),
   });
 
-  constructor(private service: FinancialScoreService, private readonly router: Router) {   
-    
-  }
+  constructor(private service: FinancialScoreService, private toastService: ToastService, private readonly router: Router) { }
   
   onBtnClick(){
     if(this.scoreFormGroup.valid){
@@ -34,15 +33,34 @@ export class CalculateScoreFormComponent {
       this.service.calculateScore(request).subscribe({      
         next: (r) => this.router.navigate(['score-result', { score: r.score }]),
         error: (e) => {
-          console.log(e) 
+          this.handleRequestError(e);                
         }
       });
       
       this.scoreFormGroup.reset();
-    } else if(this.scoreFormGroup.pristine && !this.scoreFormGroup.touched){
-      this.scoreFormGroup.controls.annualIncome.markAsTouched();
-      this.scoreFormGroup.controls.monthlyCosts.markAsTouched();
+    } else if(this.formWasSubmittedEmpty()){
+      this.markControlsAsTouched();    
     }
+  }
+  
+  formWasSubmittedEmpty() : boolean{
+    return this.scoreFormGroup.pristine && !this.scoreFormGroup.touched;
+  }
+
+  markControlsAsTouched(){
+    this.scoreFormGroup.controls.annualIncome.markAsTouched();
+    this.scoreFormGroup.controls.monthlyCosts.markAsTouched();
+  }
+  
+  handleRequestError(error: any){
+    if(error.error?.errors?.length > 0){
+      let errorResponse = error.error as ApiErrorResponse;
+      errorResponse.errors.forEach(errorMessage => {
+        this.toastService.show({body: errorMessage, className: 'bg-danger text-light'});  
+      });
+    } else {
+      this.toastService.show({body: 'An error occurred. Please, try again later', className: 'bg-danger text-light'});  
+    }    
   }
 
   get annualIncome() { return this.scoreFormGroup.get('annualIncome'); }

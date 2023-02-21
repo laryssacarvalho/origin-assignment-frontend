@@ -6,46 +6,48 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-sm-6">
-            <app-card>
-                <div class="row mb-3 mb-lg-4 g-0 justify-content-center justify-content-lg-start">
-                    <div class="col-sm-auto me-lg-3 text-center mb-3 mb-lg-0">
-                        <img src="assets/images/origin-icon.png" id="origin-icon">
+            <div class="card">
+                <div class="card-body p-0">                    
+                    <div class="row mb-3 mb-lg-4 g-0 justify-content-center justify-content-lg-start">
+                        <div class="col-sm-auto me-lg-3 text-center mb-3 mb-lg-0">
+                            <img src="assets/images/origin-icon.png" id="origin-icon">
+                        </div>
+                        <div class="col-sm-auto text-center text-lg-start">
+                            <h4 class="card-title">Financial wellness test</h4>
+                            <p class="card-subtitle">Enter your financial information below</p>
+                        </div>
                     </div>
-                    <div class="col-sm-auto text-center text-lg-start">
-                        <h4 class="card-title">Financial wellness test</h4>
-                        <p class="card-subtitle">Enter your financial information below</p>
-                    </div>
+                    <form [formGroup]="scoreFormGroup" class="row" novalidate>                    
+                        <div class="col-lg-6 mb-3 mb-lg-4">
+                            <label for="annual-income" class="form-label input-label">Annual income</label>
+                            <div class="input-group flex-nowrap">                                                                        
+                                <span class="input-group-text"><fa-icon [icon]="faDollarSign" class="fa-lg input-icon"></fa-icon></span>
+                                <input class="form-control input-field" required formControlName="annualIncome" currencyMask id="annual-income">
+                            </div>
+    
+                            <div *ngIf="annualIncome?.invalid && (annualIncome?.dirty || annualIncome?.touched)">
+                                <div *ngIf="annualIncome?.errors?.['required']" class="input-error">Annual income is required</div>
+                                <div *ngIf="annualIncome?.errors?.['min']" class="input-error">Annual income must be greater than 1</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-3 mb-lg-4">
+                            <label for="monthly-costs" class="form-label input-label">Monthly costs</label>
+                            <div class="input-group flex-nowrap">                                                                        
+                                <span class="input-group-text"><fa-icon [icon]="faDollarSign" class="fa-lg input-icon"></fa-icon></span>
+                                <input required class="form-control input-field" formControlName="monthlyCosts" id="monthly-costs" currencyMask>
+                            </div>
+    
+                            <div *ngIf="monthlyCosts?.invalid && (monthlyCosts?.dirty || monthlyCosts?.touched)">
+                                <div *ngIf="monthlyCosts?.errors?.['required']" class="input-error">Monthly costs is required</div>
+                                <div *ngIf="monthlyCosts?.errors?.['min']" class="input-error">Monthly costs must be greater than 1</div>
+                            </div>
+                        </div>                        
+                        <div class="col d-flex justify-content-center mt-2">
+                            <app-button (btnClick)="onBtnClick()" buttonText="Continue" type="submit"></app-button>
+                        </div>
+                    </form>
                 </div>
-                <form [formGroup]="scoreFormGroup" class="row" novalidate>                    
-                    <div class="col-lg-6 mb-3 mb-lg-4">
-                        <label for="annual-income" class="form-label input-label">Annual income</label>
-                        <div class="input-group flex-nowrap">                                                                        
-                            <span class="input-group-text"><fa-icon [icon]="faDollarSign" class="fa-lg input-icon"></fa-icon></span>
-                            <input class="form-control input-field" required formControlName="annualIncome" currencyMask id="annual-income">
-                        </div>
-
-                        <div *ngIf="annualIncome?.invalid && (annualIncome?.dirty || annualIncome?.touched)">
-                            <div *ngIf="annualIncome?.errors?.['required']" class="input-error">Annual income is required</div>
-                            <div *ngIf="annualIncome?.errors?.['min']" class="input-error">Annual income must be greater than 1</div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-3 mb-lg-4">
-                        <label for="monthly-costs" class="form-label input-label">Monthly costs</label>
-                        <div class="input-group flex-nowrap">                                                                        
-                            <span class="input-group-text"><fa-icon [icon]="faDollarSign" class="fa-lg input-icon"></fa-icon></span>
-                            <input required class="form-control input-field" formControlName="monthlyCosts" id="monthly-costs" currencyMask>
-                        </div>
-
-                        <div *ngIf="monthlyCosts?.invalid && (monthlyCosts?.dirty || monthlyCosts?.touched)">
-                            <div *ngIf="monthlyCosts?.errors?.['required']" class="input-error">Monthly costs is required</div>
-                            <div *ngIf="monthlyCosts?.errors?.['min']" class="input-error">Monthly costs must be greater than 1</div>
-                        </div>
-                    </div>                        
-                    <div class="col d-flex justify-content-center mt-2">
-                        <app-button (btnClick)="onBtnClick()" buttonText="Continue" type="submit"></app-button>
-                    </div>
-                </form>
-            </app-card>
+            </div>
         </div>        
     </div>
 </div>

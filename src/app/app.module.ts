@@ -11,7 +11,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ButtonComponent } from './components/button/button.component';
-import { CardComponent } from './components/card/card.component';
 import { ScoreResultComponent } from './components/score-result/score-result.component';
 import { ScoreBarComponent } from './components/score-bar/score-bar.component';
 import { CurrencyMaskConfig, CurrencyMaskModule, CURRENCY_MASK_CONFIG } from 'ng2-currency-mask';
@@ -35,7 +34,6 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     HeaderComponent,
     FooterComponent,
     ButtonComponent,
-    CardComponent,
     ScoreResultComponent,
     ScoreBarComponent,  
     ToastsContainerComponent

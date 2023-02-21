@@ -6,26 +6,28 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-sm-6">   
-            <app-card>
-                <div class="row mb-3 mb-md-4 g-0 justify-content-center">
-                    <div class="col-12 text-center mb-4">
-                        <img src="assets/images/origin-icon.png" id="origin-icon">
-                    </div>                        
-                
-                    <div class="col-12 text-center mb-4">
-                        <app-score-bar [type]="getScoreBarType()"></app-score-bar>
-                    </div>                        
-                
-                    <div class="col-12 text-center mb-4">
-                        <h4 class="card-title">{{ title }}</h4>
-                        <p class="card-subtitle">Your financial wellness score is <b>{{ score }}</b>.</p>
-                    </div>                        
-                
-                    <div class="col-12 d-flex justify-content-center mt-2">    
-                        <app-button (btnClick)="onBtnClick()" buttonText="Return" type="submit" color="secondary"></app-button>
-                    </div>
-                </div>  
-            </app-card>                       
+            <div class="card">
+                <div class="card-body p-0">                    
+                    <div class="row mb-3 mb-md-4 g-0 justify-content-center">
+                        <div class="col-12 text-center mb-4">
+                            <img src="assets/images/origin-icon.png" id="origin-icon">
+                        </div>                        
+                    
+                        <div class="col-12 text-center mb-4">
+                            <app-score-bar [type]="getScoreBarType()"></app-score-bar>
+                        </div>                        
+                    
+                        <div class="col-12 text-center mb-4">
+                            <h4 class="card-title">{{ title }}</h4>
+                            <p class="card-subtitle">Your financial wellness score is <b>{{ score }}</b>.</p>
+                        </div>                        
+                    
+                        <div class="col-12 d-flex justify-content-center mt-2">    
+                            <app-button (btnClick)="onBtnClick()" buttonText="Return" type="submit" color="secondary"></app-button>
+                        </div>
+                    </div>  
+                </div>
+            </div>               
         </div>        
     </div>
 </div>

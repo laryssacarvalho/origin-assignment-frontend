@@ -45,7 +45,7 @@
     background: #D32A36;
 }
 
-@media(max-width: 576px) {
+@media(max-width: 768px) {
     .score-bar-wrapper{
         height: 16px;        
     }
